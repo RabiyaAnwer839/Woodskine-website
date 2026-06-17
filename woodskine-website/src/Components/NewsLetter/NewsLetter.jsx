@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Newsletter.css';
+import './NewsLetter.css';
 
 // Import your raw stone/marble texture background image asset
 import stoneBg from "../../assets/images/bottom.webp"; // Update path and filename as needed
