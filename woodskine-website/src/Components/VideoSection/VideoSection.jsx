@@ -14,7 +14,7 @@ export default function VideoSection() {
         <iframe
           src="https://www.youtube.com/embed/wAacD_7fdBY?rel=0"
           title="Woodskine Video"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allow="accelerometer;muted; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         ></iframe>
       </div>
