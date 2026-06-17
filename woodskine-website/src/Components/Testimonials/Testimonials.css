@@ -1,0 +1,146 @@
+/* ==========================================================================
+   1. MAIN STRUCTURE CONTAINERS
+   ========================================================================== */
+.testimonials-section {
+  width: 100%;
+  background-color: #f9f9f9; /* Subtle warm luxury-off-white background */
+  padding: 80px 40px;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.testimonials-container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ==========================================================================
+   2. SECTION TYPOGRAPHY HEADER
+   ========================================================================== */
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.testimonials-overline {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #000000;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.testimonials-title {
+  font-size: 36px;
+  font-weight: 400;
+  color: #000000;
+  margin: 0;
+}
+
+/* ==========================================================================
+   3. THE FLUID GRID CARDS SYSTEM
+   ========================================================================== */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 11fr); /* Forms three clean equal columns */
+  gap: 32px;
+  width: 100%;
+}
+
+.testimonial-card {
+  background-color: #ffffff;
+  padding: 48px 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); /* Minimal designer soft shadow depth */
+}
+
+/* --- DECORATIVE EDITORIAL QUOTE VECTOR --- */
+.quote-icon-container {
+  margin-bottom: 20px;
+  height: 32px;
+}
+
+.editorial-quote-svg {
+  width: 85px;
+  height: 85px;
+  position: absolute;
+  margin-top: -18px; /* Lifts the quote icon slightly above the card's top edge for a layered effect */
+}
+
+/* --- CARD INTERIOR TYPOGRAPHY --- */
+.card-product-tag {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #000000;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.card-review-text {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #060606;
+  margin: 0 0 20px 0;
+  flex-grow: 1; /* Forces alignment synchronization across uneven paragraphs */
+}
+
+.card-author-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: #111111;
+  margin-top: 10px; /* Pins customer names to the absolute baseline of columns */
+}
+
+/* ==========================================================================
+   4. MOBILE RESPONSIVE MEDIA BREAKPOINTS
+   ========================================================================== */
+
+/* Tablet & Smaller Laptops Viewport Adjustment */
+@media (max-width: 1024px) {
+  .testimonials-section {
+    padding: 80px 24px;
+  }
+  
+  .testimonials-grid {
+    gap: 20px; /* Tightens alignment padding gaps safely */
+  }
+
+  .testimonial-card {
+    padding: 36px 28px;
+  }
+
+  .testimonials-title {
+    font-size: 30px;
+  }
+}
+
+/* Mobile Screens Adaptation Layer */
+@media (max-width: 768px) {
+  .testimonials-header {
+    margin-bottom: 40px;
+  }
+
+  .testimonials-title {
+    font-size: 26px;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr; /* Drops the 3 columns into a single stacked column view */
+    gap: 24px;
+  }
+  
+  .testimonial-card {
+    padding: 40px 32px;
+  }
+}

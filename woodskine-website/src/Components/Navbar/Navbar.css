@@ -1,0 +1,229 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+   overflow-x:hidden;
+   scrollbar-width: none; 
+   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.header-main-wrapper {
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100; /* Keeps it above everything else */
+
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* 1. Announcement Ticker Elements styling */
+.announcement-bar {
+  width: 100%;
+  background-color:#dedcdc; /* Very light subtle editorial gray */
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 40px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.announcement-text-container {
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  position: relative;
+}
+
+.announcement-msg {
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #333333;
+  text-transform: uppercase;
+  animation: announcementFade 0.5s ease-in-out forwards;
+}
+
+.announcement-arrow {
+  background: transparent;
+  border: none;
+  color:black;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 5px;
+  transition: color 0.2s ease;
+  margin-left: 25%;
+}
+ .right {
+margin-left: 0;
+  margin-right: 25%;
+  
+}
+
+.announcement-arrow:hover {
+  color: #000000;
+}
+
+/* 2. Main Luxury Navbar Layout grid */
+.navbar-container {
+  width: 100%;
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.95); /* Slight clean frost opacity transparency */
+  backdrop-filter: blur(5px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Left Links Menu configuration */
+.nav-links-left {
+  display: flex;
+  gap: 30px;
+  flex: 1;
+}
+
+.nav-item {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #000000;
+  letter-spacing: 0.5px;
+  transition: opacity 0.2s ease;
+}
+
+.nav-item:hover {
+  opacity: 0.6;
+}
+
+/* Center Branding Identity Logotype block */
+.nav-brand-logo {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 6px; /* High editorial tracking width space spacing */
+  color: #000000;
+  text-align: center;
+  flex: 1;
+  user-select: none;
+  cursor: pointer;
+}
+
+/* Right Utility panel assembly */
+.nav-utilities-right {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  justify-content: flex-end;
+  flex: 1;
+
+}
+
+.nav-lang-selector {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333333;
+  cursor: pointer;
+}
+
+.dropdown-caret {
+  font-size: 10px;
+  color: #666666;
+}
+
+.utility-icons-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+/* Uniform Clean Minimal SVG Icons Rules Setup */
+.util-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #000000;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.util-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.util-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Absolute Pinned Shopping Count Badge Counter style */
+.cart-badge-counter {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 700;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Announcement sliding text change keyframe transition template */
+@keyframes announcementFade {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive configurations layout breakpoint changes */
+@media (max-width: 900px) {
+  .navbar-container {
+    padding: 0 20px;
+    height: 75px;
+  }
+  .nav-links-left, 
+  .nav-lang-selector, 
+  .mail-icon, 
+  .user-icon {
+    display: none; /* Hide non-essential links context layouts on mobile views */
+  }
+  .nav-brand-logo {
+    text-align: left;
+    font-size: 19px;
+  }
+  .announcement-bar {
+    padding: 0 80px;
+    text-align: center;
+width: 100%;
+  }
+  .announcement-msg{
+    width:100%;
+    margin: 0 auto;
+    font-size: 0.8rem;
+     
+  }
+  .announcement-arrow {
+   margin-left: 0;
+    margin-right: 0;
+  }
+}

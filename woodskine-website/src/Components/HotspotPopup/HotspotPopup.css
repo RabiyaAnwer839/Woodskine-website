@@ -1,0 +1,94 @@
+.hotspot-popup-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: transparent;
+}
+
+.hotspot-popup-card {
+  position: fixed;
+  z-index: 10000;
+  min-width: 260px;
+  background: #fff;
+  padding: 16px 18px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
+}
+
+.hotspot-popup-close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  color: #111;
+}
+
+.hotspot-popup-icon {
+  width: 52px;
+  height: 62px;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.hotspot-popup-handle {
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid #222;
+  border-bottom: none;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  position: absolute;
+  top: 15px;
+}
+
+.hotspot-popup-body {
+  width: 22px;
+  height: 14px;
+  background-color: #333;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  position: absolute;
+  bottom: 17px;
+}
+
+.hotspot-popup-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 20px;
+}
+
+.hotspot-popup-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+  margin: 0 0 4px 0;
+}
+
+.hotspot-popup-price {
+  font-size: 13px;
+  color: #444;
+  margin: 0 0 10px 0;
+}
+
+.hotspot-popup-link {
+  font-size: 11px;
+  font-weight: 600;
+  color: #777;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

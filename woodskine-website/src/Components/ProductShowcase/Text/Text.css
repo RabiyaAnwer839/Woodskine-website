@@ -1,0 +1,125 @@
+.quote-section-container {
+  width: 100%;
+  background-color: #ffffff; 
+  padding: 20px 20px 20px 20px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.quote-icon-graphic {
+  margin-bottom: -120px;
+  line-height: 1;
+}
+
+.quote-mark {
+  font-family: 'Georgia', serif;
+  font-size: 200px; 
+  color: #e5e5e5; 
+  user-select: none;
+  display: block;
+  transform: translateY(35px); 
+}
+
+/* Container keeps a fixed height area so content shifting won't jolt your page layout */
+.quote-text-content {
+  max-width: 820px; 
+  min-height: 80px; /* Adjust based on your text size length */
+  margin-bottom: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-editorial-statement {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.5; 
+  color: #000000;
+  letter-spacing: -0.3px;
+  margin: 0;
+  /* Applies a smooth fade-in look every time the array updates */
+  animation: textFadeEffect 0.8s ease-out forwards;
+}
+
+/* Press / Media Logotype Row Layout */
+.brand-press-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px; 
+  width: 100%;
+  max-width: 900px;
+}
+
+.press-logo {
+  color: #b5b5b5; 
+  font-size: 26px;
+  letter-spacing: 1px;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.press-logo:hover {
+  color: #666666;
+}
+
+.img-magazin {
+  font-family: 'Arial Black', sans-serif;
+  font-weight: 900;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+}
+.img-magazin span {
+  font-family: 'Arial', sans-serif;
+  font-weight: 300;
+}
+
+.gala-font {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+
+.welcome-font {
+  font-family: 'Helvetica', sans-serif;
+  font-size: 26px;
+  font-weight: 300;
+  letter-spacing: -1px;
+}
+.welcome-font span {
+  font-weight: 800;
+}
+
+/* Subtle crossfade visual frames transition keyframe */
+@keyframes textFadeEffect {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .quote-section-container {
+    padding: 20px 20px 20px 20px;
+  }
+  
+  .main-editorial-statement {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+  
+  .brand-press-row {
+    flex-direction: column; 
+    gap: 35px;
+  }
+}

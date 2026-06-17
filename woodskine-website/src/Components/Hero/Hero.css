@@ -1,0 +1,227 @@
+/* ==========================================================================
+   1. MAIN CONTAINER & VIEWPORT WINDOW
+   ========================================================================== */
+.hero-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: #000000;
+  overflow: hidden; /* Critical: clips all off-screen slides horizontally */
+}
+
+/* 2. HORIZONTAL SLIDING TRACK 
+   Transforms the active index into horizontal movement percentages
+*/
+.slideshow-wrapper {
+  display: flex;
+  width: 300%; /* Calculated based on 3 slides side-by-side */
+  height: 100%;
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* If your JS logic applies transform inside inline styles, use this selector instead:
+   If not, we can force the track shift using standard attribute selectors or indices.
+*/
+.hero-container:has(.slide-frame:nth-child(1).active) .slideshow-wrapper {
+  transform: translateX(0%);
+}
+.hero-container:has(.slide-frame:nth-child(2).active) .slideshow-wrapper {
+  transform: translateX(-33.3333%);
+}
+.hero-container:has(.slide-frame:nth-child(3).active) .slideshow-wrapper {
+  transform: translateX(-66.6666%);
+}
+
+/* ==========================================================================
+   3. INDIVIDUAL SLIDE FRAMES (Filmstrip Blocks)
+   ========================================================================== */
+.slide-frame {
+  width: 33.3333%; /* Each slide takes exactly 1 viewport width */
+  height: 100%;
+  display: flex;   /* Ensures column-left and column-right snap side-by-side */
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Column Base Defaults */
+.column-left,
+.column-right {
+  height: 100%;
+  background-repeat: no-repeat;
+  transition: background-position 0.5s ease;
+}
+
+/* --- FULL FRAME LAYOUT (Slides 1 & 2) --- */
+.full-frame .column-left {
+  width: 100%; /* Fills entire viewport */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding-left: 8%;
+  box-sizing: border-box;
+}
+
+/* --- SPLIT FRAME LAYOUT (Slide 3) --- */
+.split-frame .column-left {
+  width: 50%; /* Perfect split down the middle */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding-left: 10%;
+  box-sizing: border-box;
+}
+
+.split-frame .column-right {
+  width: 50%; /* Right side imagery container */
+  background-size: cover;
+  background-position: center;
+  background-color: #f9f9f9;
+}
+
+/* ==========================================================================
+   4. HERO TYPOGRAPHY & OVERLAYS
+   ========================================================================== */
+.hero-content {
+  max-width: 600px;
+  color: #ffffff;
+  z-index: 10;
+  animation: heroTextReveal 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.3s both;
+}
+
+/* If text looks unreadable on light backgrounds, add a slight safe dark text shadow overlay */
+.full-frame:nth-child(1) .hero-content {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.hero-subtitle {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  margin: 0 0 15px 0;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1.15;
+  margin: 0 0 35px 0;
+  letter-spacing: -0.5px;
+}
+
+/* Premium Button Styling */
+.hero-btn {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  padding: 16px 42px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.hero-btn:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* Modifying Button color scheme for the light background elements */
+.split-frame .hero-btn {
+  background-color: #ffffff;
+  color:black; 
+}
+.split-frame .hero-btn:hover {
+  background-color: #0c0b0b;
+  color: #ffffff;
+}
+.split-frame .hero-content {
+  color: #f9f7f7; /* Dark text matching woodskine.com specification rules */
+}
+
+/* ==========================================================================
+   5. PROGRESS LINE INDICATORS
+   ========================================================================== */
+.slider-indicators {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 15px;
+  z-index: 20;
+}
+
+.indicator-line {
+  width: 45px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.3); /* Muted white timeline bar track */
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+/* Dynamic slider track activation indicator status fills */
+.indicator-line.active {
+  background-color: #ffffff;
+}
+
+/* Adjust colors for when the light split slide 3 is current active context */
+.hero-container:has(.split-frame.active) .indicator-line {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.hero-container:has(.split-frame.active) .indicator-line.active {
+  background-color: #000000;
+}
+
+/* ==========================================================================
+   6. 📱 RESPONSIVE BREAKPOINT CONTROLS (Mobile Devices)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 36px;
+  }
+  
+  .full-frame .column-left {
+    padding-left: 24px;
+    background-position: 65% center; /* Adjusts framing center line point on narrow mobile device windows */
+  }
+
+  /* Changes Split Slide design to uniform grid flow layout layers on mobile phones */
+  .split-frame {
+    flex-direction: column;
+  }
+
+  .split-frame .column-left {
+    width: 100%;
+    height: 60%; /* Top half text block area window space */
+    padding: 80px 24px 0 24px;
+    align-items: flex-start;
+  }
+
+  .split-frame .column-right {
+    width: 100%;
+    height: 40%; /* Bottom half imagery area window space */
+  }
+  
+  .slider-indicators {
+    bottom: 25px;
+  }
+}
+
+/* Text slide timing keyframe frame transition loop setup */
+@keyframes heroTextReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

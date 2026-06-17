@@ -1,0 +1,145 @@
+/* ==========================================================================
+   1. MASTER GRID & FLEXCONTAINMENT
+   ========================================================================== */
+.knowhow-section-container {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 80px 40px; /* Generous spacing top and bottom matching minimal luxury layouts */
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin-top: 80px; /* Added breathing room from the previous section on the page */
+}
+
+.knowhow-content-wrapper {
+  max-width: 1200px; /* Limits content stretching on massive monitors */
+  width: 100%;
+  display: flex;
+  gap: 60px; /* Spacing gap between text grid column and image window column */
+  align-items: center;
+}
+
+/* ==========================================================================
+   2. LEFT EDITORIAL TEXT STYLING
+   ========================================================================== */
+.knowhow-text-block {
+  flex: 1; /* Grants equal split sharing width across desktop lines */
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px; /* Adds breathing room from the left edge of the container */
+}
+
+.knowhow-overline-tag {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #000000;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.knowhow-main-heading {
+  font-size: 34px;
+  font-weight: 400; /* Minimal light designer thickness profiles */
+  line-height: 1.25;
+  color: #000000;
+  margin: 0 0 28px 0;
+  max-width: 500px; /* Prevents heading strings from creating long hard-to-read single lines */
+}
+
+.knowhow-description-paragraph {
+  font-size: 15px;
+  line-height: 1.65;
+  color: #111111;
+  margin: 0 0 24px 0;
+  max-width: 480px;
+}
+
+.knowhow-description-paragraph:last-of-type {
+  margin-bottom: 40px; /* Added breathing room right before the action link element button */
+}
+
+/* --- THE SOLID BLACK MINIMAL CTA BUTTON --- */
+.knowhow-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 52px;
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-decoration: none;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.knowhow-action-btn:hover {
+  background-color: #313131; /* Smooth dark gray hover transition state */
+}
+
+/* ==========================================================================
+   3. RIGHT SIDE MEDIA DISPLAY WINDOW
+   ========================================================================== */
+.knowhow-image-block {
+  flex: 1; /* Matches identical side dimensions to maintain perfect desktop balancing weights */
+  width: 100%;
+}
+
+.knowhow-media-canvas {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* Perfectly locks original image landscape proportions natively */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: grayscale(100%); /* Guarantees matching editorial black/white theme look natively */
+}
+
+/* ==========================================================================
+   4. SYSTEM FLUID RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+/* Tablet Optimization Layouts */
+@media (max-width: 1024px) {
+  .knowhow-content-wrapper {
+    gap: 40px; /* Tightens horizontal spacing gutters on smaller laptop monitors */
+  }
+
+  .knowhow-main-heading {
+    font-size: 30px; /* Smooth down-scaling typography weights */
+  }
+}
+
+/* Mobile Layout Adaptation (Stacked Elements View) */
+@media (max-width: 768px) {
+  .knowhow-section-container {
+    padding: 60px 24px; /* Tight margins matching mobile standard layouts */
+  }
+
+  .knowhow-content-wrapper {
+    flex-direction: column-reverse; /* Reverses direction order so the key text prints below the media layout safely */
+    gap: 48px;
+  }
+
+  .knowhow-text-block, 
+  .knowhow-image-block {
+    flex: none; /* Disables flex splitting parameters since grid blocks stack cleanly vertically now */
+    width: 100%;
+  }
+
+  .knowhow-main-heading {
+    font-size: 26px; /* Optimized mobile friendly viewport sizing values */
+    max-width: 100%;
+  }
+
+  .knowhow-description-paragraph {
+    max-width: 100%; /* Spans across mobile containers cleanly */
+  }
+
+  .knowhow-action-btn {
+    width: 100%; /* Becomes a full-width interactive button for mobile touch targets */
+  }
+}
